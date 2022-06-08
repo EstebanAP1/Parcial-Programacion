@@ -44,7 +44,7 @@ public class Manual extends javax.swing.JFrame {
         salir = new javax.swing.JButton();
         back = new javax.swing.JButton();
         random = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        encriptar = new javax.swing.JCheckBox();
         simb = new javax.swing.JCheckBox();
         c8 = new javax.swing.JCheckBox();
         c12 = new javax.swing.JCheckBox();
@@ -84,8 +84,13 @@ public class Manual extends javax.swing.JFrame {
         });
         getContentPane().add(random, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
 
-        jCheckBox1.setText("Encriptar");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        encriptar.setText("Encriptar");
+        encriptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                encriptarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(encriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         simb.setText("Simbolos");
         getContentPane().add(simb, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
@@ -278,6 +283,28 @@ public class Manual extends javax.swing.JFrame {
 	passV.setText(gm.getPass());
     }//GEN-LAST:event_randomActionPerformed
 
+    private void encriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encriptarActionPerformed
+        Emetodos e = new Emetodos();
+	
+	String key = passV.getText();
+	
+	e.setCifrado(key);
+	
+	byte[] seguraBytes = e.getCifrado();
+	
+	String cifrada = new String(seguraBytes, java.nio.charset.StandardCharsets.UTF_8);
+	
+	System.out.println(cifrada);
+	
+	if (encriptar.isSelected()) {
+	    passV.setText(cifrada);
+	    System.out.println(seguraBytes);
+	    System.out.println(cifrada);
+	} else {
+	    passV.setText(passC.getText());
+	}
+    }//GEN-LAST:event_encriptarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,7 +345,7 @@ public class Manual extends javax.swing.JFrame {
     private javax.swing.JCheckBox c12;
     private javax.swing.JCheckBox c6;
     private javax.swing.JCheckBox c8;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox encriptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JCheckBox mayus;
     private javax.swing.JCheckBox minus;

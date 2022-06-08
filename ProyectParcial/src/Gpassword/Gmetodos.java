@@ -40,7 +40,6 @@ public class Gmetodos {
 		case 0:
 		    pass += String.valueOf((int) (0 * Math.random()));
 		    break;
-
 		case 1:
 		    rand = (int) (Mayus.length() * Math.random());
 		    pass += String.valueOf(Mayus.charAt(rand));

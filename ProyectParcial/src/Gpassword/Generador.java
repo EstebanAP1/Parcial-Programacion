@@ -5,15 +5,11 @@
  */
 package Gpassword;
 
-import java.awt.Color;
+import java.nio.charset.StandardCharsets;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.Arrays;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 
 /**
  *
@@ -30,7 +26,6 @@ public class Generador extends javax.swing.JFrame {
 	initComponents();
 	passV.setVisible(false);
 	passC.setVisible(true);
-	passE.setVisible(false);
     }
 
     /**
@@ -45,7 +40,6 @@ public class Generador extends javax.swing.JFrame {
         encriptar = new javax.swing.JCheckBox();
         passV = new javax.swing.JTextField();
         passC = new javax.swing.JPasswordField();
-        passE = new javax.swing.JTextField();
         ocultar = new javax.swing.JCheckBox();
         salir = new javax.swing.JButton();
 
@@ -85,18 +79,17 @@ public class Generador extends javax.swing.JFrame {
         getContentPane().add(encriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
         getContentPane().add(passV, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 40));
         getContentPane().add(passC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 40));
-        getContentPane().add(passE, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 40));
 
         ocultar.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         ocultar.setForeground(new java.awt.Color(255, 255, 255));
-        ocultar.setText("visible");
+        ocultar.setText("Visible");
         ocultar.setMinimumSize(new java.awt.Dimension(24, 64));
         ocultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ocultarActionPerformed(evt);
             }
         });
-        getContentPane().add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
+        getContentPane().add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         salir.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         salir.setText("Exit");
@@ -114,28 +107,20 @@ public class Generador extends javax.swing.JFrame {
 	int digit = (int)(Math.random()*12+8);
 
 	Gmetodos g = new Gmetodos(digit);
-	Emetodos e = new Emetodos();
 
 	g.generar();
 	
-	String key = g.getPass();
-	
-	e.setCifrado(key);
-	
 	passC.setText(g.getPass());
 	passV.setText(g.getPass());
-
     }//GEN-LAST:event_randomActionPerformed
 
     private void ocultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ocultarActionPerformed
 	if (mostrar) {
-	    passE.setVisible(false);
 	    passV.setVisible(true);
 	    passC.setVisible(false);
 	    passV.setText(passC.getText());
 	    mostrar = false;
 	} else {
-	    passE.setVisible(false);
 	    passV.setVisible(false);
 	    passC.setVisible(true);
 	    passC.setText(passV.getText());
@@ -157,11 +142,20 @@ public class Generador extends javax.swing.JFrame {
     private void encriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encriptarActionPerformed
 	Emetodos e = new Emetodos();
 	
-	if (ocultar.isSelected() & encriptar.isSelected()) {
-	    passE.setVisible(true);
-	    passV.setVisible(false);
-	    passC.setVisible(false);
-	    passE.setText(Arrays.toString(e.getCifrado()));
+	String key = passV.getText();
+	
+	e.setCifrado(key);
+	
+	byte[] seguraBytes = e.getCifrado();
+	
+	String cifrada = new String(seguraBytes, java.nio.charset.StandardCharsets.UTF_8);
+	
+	if (encriptar.isSelected()) {
+	    passV.setText(cifrada);
+	    System.out.println(seguraBytes);
+	    System.out.println(cifrada);
+	} else {
+	    passV.setText(passC.getText());
 	}
     }//GEN-LAST:event_encriptarActionPerformed
 
@@ -205,7 +199,6 @@ public class Generador extends javax.swing.JFrame {
     private javax.swing.JButton manual;
     private javax.swing.JCheckBox ocultar;
     private javax.swing.JPasswordField passC;
-    private javax.swing.JTextField passE;
     private javax.swing.JTextField passV;
     private javax.swing.JButton random;
     private javax.swing.JButton salir;

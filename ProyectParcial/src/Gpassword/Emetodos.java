@@ -27,7 +27,7 @@ public class Emetodos {
 
     public void setCifrado(String key){
         String clave = key;
-
+	
         byte[] keyData = clave.getBytes();
 
         SecretKeySpec ks = new SecretKeySpec(keyData, "Blowfish");
@@ -49,7 +49,7 @@ public class Emetodos {
     public byte[] getCifrado(){
         return secureKey;
     }
-
+    
     private byte[] secureKey;
 
 }
