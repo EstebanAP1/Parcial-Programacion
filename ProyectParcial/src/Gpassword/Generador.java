@@ -60,13 +60,13 @@ public class Generador extends javax.swing.JFrame {
         getContentPane().add(random, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 180, 40));
 
         manual.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        manual.setText("Manual");
+        manual.setText("Avanzado");
         manual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manualActionPerformed(evt);
             }
         });
-        getContentPane().add(manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
+        getContentPane().add(manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         encriptar.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         encriptar.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,7 +76,7 @@ public class Generador extends javax.swing.JFrame {
                 encriptarActionPerformed(evt);
             }
         });
-        getContentPane().add(encriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        getContentPane().add(encriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
         getContentPane().add(passV, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 40));
         getContentPane().add(passC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 40));
 
@@ -89,7 +89,7 @@ public class Generador extends javax.swing.JFrame {
                 ocultarActionPerformed(evt);
             }
         });
-        getContentPane().add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
+        getContentPane().add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
         salir.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         salir.setText("Exit");

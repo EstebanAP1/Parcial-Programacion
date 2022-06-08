@@ -90,7 +90,7 @@ public class Manual extends javax.swing.JFrame {
                 encriptarActionPerformed(evt);
             }
         });
-        getContentPane().add(encriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        getContentPane().add(encriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         simb.setText("Simbolos");
         getContentPane().add(simb, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
@@ -101,7 +101,7 @@ public class Manual extends javax.swing.JFrame {
         c12.setText("12 Caracteres");
         getContentPane().add(c12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
-        ocultar.setText("visible");
+        ocultar.setText("Visible");
         ocultar.setMinimumSize(new java.awt.Dimension(24, 64));
         ocultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +124,8 @@ public class Manual extends javax.swing.JFrame {
         num.setText("Numeros");
         getContentPane().add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
 
-        jLabel1.setText("Personalizacion Manual");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+        jLabel1.setText("Generación Avanzada");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 110, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
