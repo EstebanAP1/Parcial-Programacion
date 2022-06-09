@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Gpassword;
 import Gpassword.Conexion;
 import java.sql.*;
@@ -11,10 +7,6 @@ import com.mysql.jdbc.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Einner
- */
 public class tabla extends javax.swing.JFrame {
 
     
@@ -26,9 +18,6 @@ public class tabla extends javax.swing.JFrame {
     ResultSet rs;
     int idc;
     
-    /**
-     * Creates new form usuarios
-     */
     public tabla() {
 	initComponents();
 	setLocationRelativeTo(null);
@@ -42,12 +31,9 @@ public class tabla extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnEliminarTodo = new javax.swing.JButton();
-        btnEditar1 = new javax.swing.JButton();
         manual = new javax.swing.JButton();
         automatico = new javax.swing.JButton();
-        actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(474, 300));
@@ -93,29 +79,13 @@ public class tabla extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
-
         btnEliminarTodo.setText("Eliminar Todo");
         btnEliminarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarTodoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
-
-        btnEditar1.setText("Editar");
-        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
+        getContentPane().add(btnEliminarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
         manual.setText("Avanzado");
         manual.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +93,7 @@ public class tabla extends javax.swing.JFrame {
                 manualActionPerformed(evt);
             }
         });
-        getContentPane().add(manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        getContentPane().add(manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         automatico.setText("Auto");
         automatico.addActionListener(new java.awt.event.ActionListener() {
@@ -131,22 +101,10 @@ public class tabla extends javax.swing.JFrame {
                 automaticoActionPerformed(evt);
             }
         });
-        getContentPane().add(automatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
-
-        actualizar.setText("Actualizar");
-        actualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        getContentPane().add(automatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEliminarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTodoActionPerformed
 	eliminar();
@@ -155,21 +113,6 @@ public class tabla extends javax.swing.JFrame {
 	    modelo.removeRow(i);
 	}
     }//GEN-LAST:event_btnEliminarTodoActionPerformed
-
-    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
-//	int fila =tabla.getSelectedRow();
-//	if (fila>=0) {
-//	    
-//	   id.setText(tabla.getValueAt(fila, 0).toString());
-//	   prueba.setText(tabla.getValueAt(fila, 1).toString());
-//	   txtEncriptado.setText(tabla.getValueAt(fila, 2).toString());
-//	   modelo.removeRow(fila);
-//	   
-//	}else{
-//	    JOptionPane.showMessageDialog(null, "fila no seleccionada");
-//	}
-//	 
-    }//GEN-LAST:event_btnEditar1ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
 	System.exit(0);
@@ -190,10 +133,6 @@ public class tabla extends javax.swing.JFrame {
 	abrir.setVisible(true);
 	this.setVisible(false);
     }//GEN-LAST:event_automaticoActionPerformed
-
-    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        consulta();
-    }//GEN-LAST:event_actualizarActionPerformed
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
 	int fila = tabla.getSelectedRow();
@@ -254,24 +193,17 @@ public class tabla extends javax.swing.JFrame {
     void eliminar () {
 	int fila = tabla.getSelectedRow();
 	try {
-	    if (fila<0) {
-		JOptionPane.showMessageDialog(null, "Registro no seleccionado");
-	    } else {
-		String sql = "delete from registro where encriptada="+idc;
-		conect = conexion.getConexion();
-		st = conect.createStatement();
-		st.executeUpdate(sql);
-		JOptionPane.showMessageDialog(null, "Datos eliminados");
-	    }
+	    String sql = "delete from registro where encriptada="+idc;
+	    conect = conexion.getConexion();
+	    st = conect.createStatement();
+	    st.executeUpdate(sql);
+	    JOptionPane.showMessageDialog(null, "Datos eliminados");
 	} catch (Exception e) {
 	}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton actualizar;
     private javax.swing.JButton automatico;
-    private javax.swing.JButton btnEditar1;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminarTodo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JScrollPane jScrollPane1;
